@@ -1,0 +1,87 @@
+library baso;
+
+// External
+import 'dart:math';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io' as IO;
+import 'package:get/get.dart';
+import 'package:uuid/uuid.dart';
+import 'package:share/share.dart';
+import 'package:universal_io/io.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart' as HTTP;
+import 'package:diacritic/diacritic.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:store_redirect/store_redirect.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:delayed_display/delayed_display.dart';
+import 'package:feature_discovery/feature_discovery.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+// Components
+part "package:baso/components/condition.dart";
+part "package:baso/components/authentication_poster.dart";
+part "package:baso/components/poster.dart";
+part 'package:baso/components/section.dart';
+part 'package:baso/components/tip_card.dart';
+part "package:baso/components/data_list.dart";
+part 'package:baso/components/data_item.dart';
+part 'package:baso/components/custom_app.dart';
+part 'package:baso/components/bottom_bar.dart';
+part 'package:baso/components/search_bar.dart';
+part 'package:baso/components/disability.dart';
+part "package:baso/components/custom_text.dart";
+part 'package:baso/components/custom_tile.dart';
+part 'package:baso/components/data_counter.dart';
+part 'package:baso/components/custom_label.dart';
+part 'package:baso/components/custom_button.dart';
+part 'package:baso/components/custom_app_bar.dart';
+part 'package:baso/components/page_indicator.dart';
+part 'package:baso/components/custom_text_field.dart';
+part 'package:baso/components/list_item_wrapper.dart';
+part 'package:baso/components/custom_dialog.dart';
+part 'package:baso/components/custom_floating_action_button.dart';
+part 'package:baso/components/phone_number_selection.dart';
+part 'package:baso/components/heading.dart';
+part 'package:baso/components/edition_tip.dart';
+part 'package:baso/components/loading_poster.dart';
+part 'package:baso/components/empty_poster.dart';
+part 'package:baso/components/edition_step.dart';
+part 'package:baso/components/phone_number_input.dart';
+part 'package:baso/components/error_poster.dart';
+part 'package:baso/components/settings_tile.dart';
+part 'package:baso/components/simple_tile.dart';
+part 'package:baso/components/dynamic_image.dart';
+part 'package:baso/components/circle_image.dart';
+part 'package:baso/components/custom_card.dart';
+part 'package:baso/components/custom_scaffold.dart';
+part 'package:baso/components/authentication_scaffold.dart';
+part 'package:baso/components/custom_slide.dart';
+
+// Pages
+part 'package:baso/pages/generic_authentication_page.dart';
+part 'package:baso/pages/generic_home_page.dart';
+part 'package:baso/pages/generic_presentation_page.dart';
+part 'package:baso/pages/generic_warning_page.dart';
+part 'package:baso/pages/generic_conditions_page.dart';
+part 'package:baso/pages/generic_settings_page.dart';
+part 'package:baso/pages/generic_contact_page.dart';
+part 'package:baso/pages/generic_about_page.dart';
+
+// Services
+part 'package:baso/services/global.dart';
+part 'package:baso/services/backend.dart';
+part 'package:baso/services/messaging.dart';
+part 'package:baso/services/countries.dart';
