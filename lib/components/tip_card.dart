@@ -8,6 +8,7 @@ class TipCard extends StatefulWidget {
   final String id;
   final EdgeInsets? margin;
   final bool condition;
+  final Color? color;
 
   const TipCard({
     Key? key,
@@ -18,6 +19,7 @@ class TipCard extends StatefulWidget {
     this.id = "default",
     this.condition = true,
     this.margin,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -44,7 +46,7 @@ class _TipCardState extends State<TipCard> {
         child: Card(
           elevation: 0,
           margin: widget.margin ?? EdgeInsets.all(16),
-          color: lighten(Theme.of(context).primaryColorLight),
+          color: widget.color ?? lighten(Theme.of(context).primaryColorLight),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
             side: BorderSide(color: Colors.grey),
